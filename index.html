@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- CSS Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        scroll-padding-block-start: 10em;
+        overflow: hidden;
+      }
+
+      body {
+        background: linear-gradient(to bottom, #7ab2b2, #344c4c);
+      }
+
+      .bg-logo {
+        width: 1500px;
+        top: -40%;
+        left: -30%;
+        position: fixed;
+        opacity: 0.2;
+        /* background-color: pink; */
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      .tentang,
+      .panduan,
+      .konfigurasi,
+      .kontak {
+        height: 100vh;
+        width: 75%;
+        text-align: justify;
+      }
+
+      .wrapper-konfigurasi,
+      .wrapper-panduan,
+      .wrapper-tentang,
+      .wrapper-kontak {
+        display: flex;
+      }
+
+      .wrapper-content {
+        height: 100vh;
+        color: #fff;
+        margin-left: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        /* background-color: pink; */
+      }
+
+      .wrapper-content > h1 {
+        font-size: 46px;
+        margin-bottom: 20px;
+      }
+
+      .panduan-list {
+        width: 100%;
+      }
+
+      .panduan-list ol {
+        margin-left: -1em;
+      }
+
+      .panduan-list ol li {
+        margin: 0 0 1em 0;
+        font-size: 18px;
+      }
+
+      .kontak .huh {
+        display: flex;
+        flex-direction: row;
+      }
+
+      /* .kontak .kontak-logo,
+      .kontak .kontak-ig {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2em;
+      } */
+
+      /* .kontak .kontak-logo img {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 0.9em;
+        color: #fff;
+      } */
+
+      .kontak .bi.bi-instagram {
+        font-size: 1.3em;
+        margin-right: 0.5em;
+      }
+
+      .kontak-ig {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .kontak-ig a {
+        margin-bottom: 1.3em;
+        margin-left: 0.5em;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .form-wrapper {
+        /* background-color: pink; */
+        display: flex;
+        flex-direction: column;
+        /* align-items: start; */
+        width: 30vw;
+        /* min-width: 1000px; */
+      }
+
+      .box-pilih {
+        display: flex;
+      }
+
+      .pilihan {
+        width: 3em;
+        height: 3em;
+        margin: 1em;
+        border: none;
+        border-radius: 0.3em;
+      }
+
+      #TextBox,
+      #TextBox2 {
+        /* width: 100%; */
+        margin-bottom: 10px;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 7px;
+        border: 0;
+        min-width: 300px;
+      }
+
+      #TextBox,
+      #TextBox2:focus {
+        outline: none;
+      }
+
+      #TextBox,
+      #TextBox2:placeholder-shown {
+        padding-left: 10px;
+        font-weight: 500;
+      }
+
+      .kirim {
+        height: 42px;
+        width: 150px;
+        margin: 0 auto;
+        border-radius: 7px;
+        border: 0;
+        cursor: pointer;
+      }
+
+      .navbar {
+        width: 20%;
+        height: 100vh;
+        background: #fff;
+        background: linear-gradient(to right bottom, rgba(217, 217, 217, 0.4), rgba(217, 217, 217, 0.2));
+        backdrop-filter: blur(40px);
+        /* border-radius: 10px; */
+        box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.5);
+        position: fixed;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: end;
+        padding-right: 55px;
+      }
+
+      .navbar ul {
+        list-style: none;
+        width: 100%;
+      }
+
+      .navbar ul li {
+        margin: 30px 0 30px 0;
+      }
+
+      .navbar ul li:hover {
+        background-color: rgba(217, 217, 217, 0.6);
+        border-radius: 0.2em;
+      }
+
+      .navbar > ul > li > a {
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .navbar ul li a:hover {
+        font-size: 28px;
+        color: rgb(54, 54, 54);
+        font-weight: bold;
+      }
+
+      @media screen and (max-width: 768px) {
+        * {
+          margin: 0;
+          padding: 0;
+          scroll-behavior: smooth;
+          scroll-padding-block-start: 3em;
+          /* overflow: hidden; */
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        h3 {
+          font-size: larger;
+        }
+
+        .tentang,
+        .panduan,
+        .konfigurasi,
+        .kontak {
+          height: 100vh;
+          width: 90%;
+          text-align: start;
+        }
+
+        .wrapper-content {
+          height: 100vh;
+          color: #fff;
+          margin-left: 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
+          /* background-color: pink; */
+        }
+
+        .navbar {
+          height: 20vh;
+          width: 100vw;
+          background: #fff;
+          background: linear-gradient(to right bottom, rgba(217, 217, 217, 0.4), rgba(217, 217, 217, 0.2));
+          backdrop-filter: blur(40px);
+          /* border-radius: 10px; */
+          box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.5);
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          text-align: end;
+        }
+
+        .navbar ul {
+          columns: 2;
+          padding: 20px 0 0 0;
+          width: 85%;
+        }
+
+        .navbar ul li {
+          break-inside: avoid;
+          margin: 0 0 10px 0;
+        }
+
+        .navbar ul li a {
+          color: #fff;
+          font-size: 20px;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        .navbar ul li a:hover {
+          font-size: 24px;
+          color: rgb(54, 54, 54);
+          font-weight: bold;
+        }
+
+        .kontak .kontak-logo,
+        .kontak .kontak-ig {
+          display: flex;
+          flex-direction: column;
+          margin-top: 0.1em;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <img src="/apalah/EX_RunningText_Logo.png" alt="Ex-RunningText" class="bg-logo" />
+    <nav class="navbar">
+      <ul>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#panduan">Panduan</a></li>
+        <li><a href="#config">Konfigurasi</a></li>
+        <li><a href="#kontak">Kontak Kami</a></li>
+      </ul>
+    </nav>
+
+    <!-- BREAK -->
+
+    <div class="tentang">
+      <div class="wrapper-tentang">
+        <div class="wrapper-content">
+          <h1 id="tentang">Tentang</h1>
+          <p>
+            Produk IoT kami adalah solusi inovatif yang memungkinkan pengguna untuk menampilkan running teks yang dapat diganti melalui web
+            dengan memasukkan alamat IP yang sudah ada ke browser. Dengan menggunakan ESP8266, produk ini dapat terhubung ke jaringan Wi-Fi
+            dan menyediakan antarmuka web yang memungkinkan pengguna untuk memasukkan teks baru. Ini dapat membuat pengguna dengan mudah
+            mengakses produk kami melalui web browser di perangkat yang terhubung ke jaringan Wi-Fi, memberikan mereka kemampuan untuk
+            mengubah pesan yang ditampilkan sesuai kebutuhan mereka, mulai dari pesan promosi hingga pesan pribadi.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BREAK -->
+
+    <div class="panduan">
+      <div class="wrapper-panduan">
+        <div class="wrapper-content">
+          <h1 id="panduan">Panduan</h1>
+
+          <div class="panduan-list">
+            <ol>
+              <li>Pergi ke halaman Konfigurasi.</li>
+              <li>Tentukan berapa jumlah teks yang ingin anda tampilkan (satu teks atau 2 teks).</li>
+              <li>
+                Jika anda memilih satu teks yang ingin ditampilkan maka isi teks pada kolom yang atas saja (yang bawah kosongkan saja).
+              </li>
+              <li>Jika anda memilih dua teks yang ingin ditampilkan maka isi teks pada ke dua kolom tersebut.</li>
+              <li>Jika semua sudah maka klik tombol “Kirim”.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BREAK -->
+
+    <div class="konfigurasi">
+      <div class="wrapper-konfigurasi">
+        <div class="wrapper-content">
+          <h1 id="config">Konfigurasi</h1>
+          <h3>Berapa Teks Yang Ingin Ditampilkan?</h3>
+
+          <div class="div-pilih">
+            <input class="pilihan" type="button" value="1" />
+            <input class="pilihan" type="button" value="2" />
+          </div>
+
+          <h3>Masuukkan Teks di Kolom Bawah ini</h3>
+          <form action="">
+            <div class="form-wrapper">
+              <input type="text" id="TextBox" name="TextBox" placeholder="Text Untuk di Bagian Atas" />
+              <input type="text" id="TextBox2" name="TextBox2" placeholder="Text Untuk di Bagian Bawah" />
+              <button type="button" class="kirim" onclick="sendData()">Kirim</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- BREAK -->
+
+    <div class="kontak">
+      <div class="wrapper-kontak">
+        <div class="wrapper-content">
+          <h1 id="kontak">Kontak Kami</h1>
+          <p>
+            Jika Anda memiliki saran, kritik, atau ada yang tidak dipahami, jangan ragu untuk menghubungi kami. Kami siap menerima masukan
+            Anda untuk terus meningkatkan layanan kami. Terima kasih atas kontribusi Anda dalam membantu kami menjadi lebih baik.
+          </p>
+
+          <!-- <div class="huh"> -->
+          <div class="kontak-logo">
+            <!-- <img src="instagram.svg" alt="riswan" />
+              <img src="instagram.svg" alt="rifqi" />
+              <img src="instagram.svg" alt="diymas" />
+              <img src="instagram.svg" alt="zaid" /> -->
+            <!-- <i class="bi bi-instagram"></i> -->
+            <!-- <i class="bi bi-instagram"></i> -->
+            <!-- <i class="bi bi-instagram"></i> -->
+            <!-- <i class="bi bi-instagram"></i> -->
+          </div>
+          <div class="kontak-ig">
+            <a href="#"><i class="bi bi-instagram"></i>riswan.idk</a>
+            <a href="#"><i class="bi bi-instagram"></i>qii___19</a>
+            <a href="#"><i class="bi bi-instagram"></i>diyrama</a>
+            <a href="#"><i class="bi bi-instagram"></i>zaidhafizdabidin_</a>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /*function sendData() {
+      var Text = document.getElementById("TextBox").value;
+      var Text2 = document.getElementById("TextBox2").value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "setText?TextContents=" + Text, true);
+      xhttp.send();
+      xhttp.open("GET", "setText?textatas=" + Text2, true);
+      xhttp.send();
+    } */
+
+      // Ketika direfresh maka halaman akan kembali ke halaman konfigurasi
+      // window.onload = function () {
+      //   document.getElementById("config").scrollIntoView();
+      // };
+
+      // document.getElementById("link-1").addEventListener("click", function () {
+      //   document.getElementsByClassName(".container").classList.add("hidden");
+      //   document.getElementsByClassName(".panduan.inactive").classList.add("active");
+      // });
+
+      // entahlah
+      /* function transition() {
+      var konfigurasi = document.getElementById("konfigurasi");
+      // var panduan = document.getElementById("panduan");
+      var wrapkonfig = konfigurasi.querySelector(".wrapper-content");
+      // var wrappanduan = panduan.querySelector(".wrapper-panduan");
+
+      wrapkonfig.style.transform = "translateY(-1000px)";
+      // wrapkonfig.style.top = "0";
+    }*/
+    </script>
+  </body>
+</html>
